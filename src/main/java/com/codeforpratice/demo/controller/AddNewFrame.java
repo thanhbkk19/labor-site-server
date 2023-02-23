@@ -17,7 +17,12 @@ public class AddNewFrame {
         newFrameApplication.saveDB(frameDetection);
     }
     @GetMapping("/getlatestvideo/{videoID}")
-    public FrameDetection getLatestVideo(@PathVariable Integer videoID) {
-        return getVideoApplication.getLatestVideo(videoID);
+    public FrameDetection getVideo(@PathVariable Integer videoID) {
+        return getVideoApplication.getVideo(videoID);
+    }
+
+    @GetMapping("/getlatestvideo")
+    public FrameDetection getLatestVideo() {
+        return getVideoApplication.getVideo(-1);
     }
 }

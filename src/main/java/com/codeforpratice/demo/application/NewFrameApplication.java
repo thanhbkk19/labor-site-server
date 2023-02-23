@@ -2,6 +2,7 @@ package com.codeforpratice.demo.application;
 
 import com.codeforpratice.demo.api.FrameDetection;
 import com.codeforpratice.demo.repository.AddNewFrameRepo;
+import com.codeforpratice.demo.repository.Entity.FrameInfo;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -22,7 +23,7 @@ public class NewFrameApplication {
 //        }
     };
     public void saveDB(FrameDetection frameDetection) {
-        FrameDetection dataFrame = new FrameDetection(null, frameDetection.getPersonList(), frameDetection.getActionList(), frameDetection.getBbox());
+        FrameInfo dataFrame = new FrameInfo(null, frameDetection.getPersonList(), frameDetection.getActionList(), frameDetection.getBbox());
         addNewFrameRepo.save(dataFrame);
     }
 }
