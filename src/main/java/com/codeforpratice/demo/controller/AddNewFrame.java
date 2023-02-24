@@ -23,6 +23,6 @@ public class AddNewFrame {
 
     @GetMapping("/getlatestvideo")
     public FrameDetection getLatestVideo() {
-        return getVideoApplication.getVideo(-1);
+        return getVideoApplication.getVideo(1);
     }
 }

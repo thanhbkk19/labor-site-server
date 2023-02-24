@@ -1,6 +1,7 @@
 package com.codeforpratice.demo.application;
 
 import com.codeforpratice.demo.api.FrameDetection;
+import com.codeforpratice.demo.repository.Entity.FrameInfo;
 import com.codeforpratice.demo.repository.GetVideoRepo;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,6 +14,11 @@ import org.springframework.stereotype.Service;
 public class GetVideoApplication {
     private final GetVideoRepo getVideoRepo;
     public FrameDetection getVideo(Integer id) {
-        return getVideoRepo.findVideo(id);
+        FrameInfo frameInfo = getVideoRepo.findVideo(id);
+        FrameDetection frameDetection = new FrameDetection(frameInfo.getFrameID(),
+                                                            frameInfo.getActionList(),
+                                                            frameInfo.getActionList(),
+                                                            frameInfo.getBb());
+        return frameDetection;
     }
 }
